@@ -6,6 +6,7 @@ import { useState } from 'react';
 const Modal = ({ handleClose, show, children, onSelected }) => {
   const [criteria, setCriteria] = useState();
   const [inquiry, setInquiry] = useState('userId');
+  const [pages, setPages] = useState(1);
   const [userDetail, setUserDetail] = useState(data.userDetail);
 
   const showHideClassName = show ? "modal display-block" : "modal display-none";
@@ -36,29 +37,35 @@ const Modal = ({ handleClose, show, children, onSelected }) => {
                   <td>
                     <div className="radio-custom">
                       <input
-                        onClick={() => setInquiry('userId')}
-                        checked={inquiry === 'userId' ? true : false}
+                        onChange={() => setInquiry('userId')}
                         type="radio"
+                        checked={inquiry === 'userId'}
                         name="inquiryBy"
                         value="userId" 
                       />
                       <label 
-                        onClick={() => setInquiry('userId')}
-                        for="userId"> User ID</label>
+                        onClick={() => {
+                          setInquiry('userId');
+                          setCriteria('');
+                        }}
+                        htmlFor="userId"> User ID</label>
                     </div>
                    
                     <div className="radio-custom">
                       <input
-                        onClick={() => setInquiry('userName')}
+                        onChange={() => { 
+                          setInquiry('userName');
+                          setCriteria('');
+                        }}
                         type="radio"
-                        checked={inquiry === 'userName' ? true : false}
+                        checked={inquiry === 'userName'}
                         name="inquiryBy"
                         value="userName"
                       />
 
                       <label
                         onClick={() => setInquiry('userName')}
-                      for="userName"> User Name</label>
+                      htmlFor="userName"> User Name</label>
                     </div>
                   </td>
                 </tr>
@@ -71,7 +78,7 @@ const Modal = ({ handleClose, show, children, onSelected }) => {
                       className="custom-input"
                       value={criteria}
                       onChange={(val) => setCriteria(val)}
-                      keyFilter="alphaNumeric"
+                      keyFilter={inquiry === 'userId' ? "alphaNumeric" : 'alphabet'}
                       maxLength="30"/>
                     &nbsp;
                     <button onClick={onFilter}>Go</button>
@@ -97,7 +104,7 @@ const Modal = ({ handleClose, show, children, onSelected }) => {
                   {
                     userDetail.map((val, key) => {
                       return(
-                        <tr>
+                        <tr key={key}>
                           <td>{key + 1}</td>
                           <td>
                             <div className="underlined" onClick={() => {
@@ -121,15 +128,15 @@ const Modal = ({ handleClose, show, children, onSelected }) => {
                       <TextField
                         type="text"
                         className="custom-input small-width-input"
-                        value={''}
-                        onChange={() => {}}
+                        value={pages}
+                        onChange={(val) => setPages(val)}
                         keyFilter="numeric"
                         maxLength="30"
                       />
                       &nbsp;
-                      <button type="button">Go</button>
+                      <button onClick={() => {}} type="button">Go</button>
                       &nbsp;
-                      <button type="button">Next</button>
+                      <button onClick={() => {}} type="button">Next</button>
                       &nbsp;
                       <button type="button" onClick={() => handleClose()}>Close</button>
                     </td>

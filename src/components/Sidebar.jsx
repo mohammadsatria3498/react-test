@@ -13,7 +13,7 @@ const Sidebar = () => {
         <ul className="x-navigation">
           <li className="xn-logo">
             <a href="index.html">XXX</a>
-            <a href="#" className="x-navigation-control" />
+            <a className="x-navigation-control" />
           </li>
           <li className="xn-title">Navigation</li>
           <li style={{ cursor: 'pointer' }}>

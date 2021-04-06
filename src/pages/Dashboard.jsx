@@ -2,7 +2,7 @@ const Dashboard = () => {
   return(
     <>
         <ul className="breadcrumb">
-            <li><a href="#">Home</a></li>
+            <li>Home</li>
             <li className="active">Dashboard</li>
           </ul>
           {/* END BREADCRUMB */}

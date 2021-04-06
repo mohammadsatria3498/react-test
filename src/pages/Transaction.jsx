@@ -165,11 +165,11 @@ const Transaction = () => {
                   <th width="150">Currency Code</th>
                   <td>:</td>
                   <td>
-                    <select disabled={true} name="currencyCode">
+                    <select disabled onChange={() => {}}>
                       {
-                        data.currencyType.map(val => {
+                        data.currencyType.map((val, key) => {
                           return (
-                            <option selected={val.isDefault || false} value={val.value}>{val.label}</option>
+                            <option selected={val.isDefault ? 'selected' : ''} key={key} value={val.value}>{val.label}</option>
                           )
                         })
                       }
@@ -180,12 +180,12 @@ const Transaction = () => {
                   <th>Transfer Type</th>
                   <td>:</td>
                   <td>
-                    <select disabled={true} name="transferType">
+                    <select disabled onChange={() => {}}>
 
                       {
-                        data.transferType.map(val => {
+                        data.transferType.map((val, key) => {
                           return (
-                            <option selected={val.isDefault || false} value={val.value}>{val.label}</option>
+                            <option key={key} selected={val.isDefault ? 'selected' : ''} value={val.value}>{val.label}</option>
                           )
                         })
                       }
@@ -216,8 +216,8 @@ const Transaction = () => {
                 {
                     notes.map((val, key) => {
                       const data = {...val, key};
-                      const amount2 = <TextField type="text" value={val.amount2} onChange={(e) => calculate(e, data, 2)} keyFilter="numeric" maxLength="15" />;
-                      const amount = <TextField type="text" value={val.amount} onChange={(e) => calculate(e, data, 1)} keyFilter="numeric" maxLength="15" />;
+                      const amount2 = <TextField type="text" value={val.amount2} onChange={(e) => calculate(e, data, 2)} keyFilter="numeric" maxLength="5" />;
+                      const amount = <TextField type="text" value={val.amount} onChange={(e) => calculate(e, data, 1)} keyFilter="numeric" maxLength="5" />;
                       return (
                         <tr key={key}>
                           <td>
@@ -277,19 +277,21 @@ const Transaction = () => {
         <div className="row">
           <div className="col-md-6">
             <table className="table-data">
-              <tr>
-                <td>Total Amount</td>
-                <td>:</td>
-                <td width="200">
-                  <TextField
-                    type="text"
-                    value={currency(totalNotes + totalCoins)}
-                    keyFilter="numeric"
-                    disabled
-                    maxLength="15"
-                  />
-                </td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td>Total Amount</td>
+                  <td>:</td>
+                  <td width="200">
+                    <TextField
+                      type="text"
+                      value={currency(totalNotes + totalCoins)}
+                      keyFilter="numeric"
+                      disabled
+                      maxLength="15"
+                    />
+                  </td>
+                </tr>
+              </tbody>
             </table>
           </div>
           
