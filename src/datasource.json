@@ -1,0 +1,65 @@
+{
+  "currencyType": [
+    {
+      "value": "016",
+      "label": "016 - IDR",
+      "isDefault": true
+    },
+    {
+      "value": "039",
+      "label": "039 - USD"    }
+  ],
+  "transferType": [
+    {
+      "value": "IN",
+      "label": "IN"
+    },
+    {
+      "value": "OUT",
+      "label": "OUT",
+      "isDefault": true
+    }
+  ],
+  "userDetail": [
+    {
+      "userId": "0032",
+      "userName": "Eddy"
+    },
+    {
+      "userId": "0033",
+      "userName": "Lesmana"
+    },
+    {
+      "userId": "0034",
+      "userName": "Amor Manager"
+    },
+    {
+      "userId": "0035",
+      "userName": "INA"
+    },
+    {
+      "userId": "0036",
+      "userName": "Pimcapem Senayan"
+    },
+    {
+      "userId": "0037",
+      "userName": "Pimcapem Sudirman"
+    },
+    {
+      "userId": "0038",
+      "userName": "Teller Senayan"
+    },
+    {
+      "userId": "0039",
+      "userName": "CS Senayan"
+    },
+    {
+      "userId": "0040",
+      "userName": "Teller Sudirman"
+    },
+    {
+      "userId": "0043",
+      "userName": "LOTUS SIN"
+    }
+  ]
+}

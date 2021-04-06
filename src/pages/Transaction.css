@@ -1,0 +1,31 @@
+.table-data td, .table-data th {
+  padding: 3px !important;
+}
+
+.right {
+  text-align: right;
+}
+
+.table-data {
+  width: 100%;
+}
+
+.custom-input {
+  width: 240px !important;
+  display: inline-block;
+}
+
+.radio-custom  label{
+  font-weight: normal;
+  padding-left: 3px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.radio-custom {
+  margin-bottom: 5px;
+}
+
+.small-width-input {
+  width: 50px !important;
+}
