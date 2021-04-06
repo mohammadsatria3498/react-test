@@ -123,7 +123,8 @@ const Transaction = () => {
     newArray[data.key] = {
       amount: type === 1 ? Number(value) : data.amount ,
       amount2: type === 2 ? Number(value) : data.amount2,
-      result: data.amount * value,
+      // result: data.amount * value,
+      result: type === 1 ? value * data.amount2 : value * data.amount,
       isAmountInput: data.isAmountInput || false,
     };
     setNotes(newArray);
@@ -138,7 +139,7 @@ const Transaction = () => {
     newArray[data.key] = {
       amount: type === 1 ? Number(value) : data.amount ,
       amount2: type === 2 ? Number(value) : data.amount2,
-      result: data.amount * value,
+      result: type === 1 ? value * data.amount2 : value * data.amount,
       isAmountInput: data.isAmountInput || false,
     };
     setCoins(newArray);
